@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Smart Assess – Setup</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  /* ── Header banner ── */
+  .header {
+    display: flex;
+    align-items: stretch;
+    background: #1e293b;
+    height: 110px;
+    flex-shrink: 0;
+  }
+
+  .header-dark {
+    width: 220px;
+    background: #0f172a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .header-logo {
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+    border-radius: 14px;
+    box-shadow: 0 4px 16px rgba(0,0,0,.4);
+  }
+
+  .header-light {
+    flex: 1;
+    background: #f8fafc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 32px;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .header-title {
+    font-size: 22px;
+    font-weight: 900;
+    color: #1e293b;
+    letter-spacing: -.5px;
+  }
+
+  .header-sub {
+    font-size: 12.5px;
+    color: #64748b;
+    margin-top: 3px;
+    font-weight: 500;
+  }
+
+  /* ── Steps sidebar ── */
+  .body {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  .sidebar {
+    width: 220px;
+    background: #0f172a;
+    flex-shrink: 0;
+    padding: 24px 0;
+  }
+
+  .step-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 20px;
+    font-size: 12px;
+    color: rgba(255,255,255,.35);
+    font-weight: 500;
+    transition: all .2s;
+  }
+
+  .step-item.active {
+    color: #fff;
+    background: rgba(255,255,255,.07);
+  }
+
+  .step-item.done {
+    color: #10b981;
+  }
+
+  .step-num {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 1.5px solid currentColor;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+
+  .step-item.active .step-num {
+    background: #0891b2;
+    border-color: #0891b2;
+    color: #fff;
+  }
+
+  .step-item.done .step-num {
+    background: #10b981;
+    border-color: #10b981;
+    color: #fff;
+  }
+
+  /* ── Main content ── */
+  .content {
+    flex: 1;
+    padding: 36px 40px 24px;
+    overflow-y: auto;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .page { display: none; flex-direction: column; flex: 1; }
+  .page.active { display: flex; }
+
+  .page-title {
+    font-size: 18px;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 6px;
+  }
+
+  .page-subtitle {
+    font-size: 13px;
+    color: #64748b;
+    margin-bottom: 24px;
+    line-height: 1.5;
+  }
+
+  /* Welcome page */
+  .welcome-banner {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    border-radius: 12px;
+    padding: 28px 32px;
+    color: #fff;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .welcome-banner img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    border-radius: 14px;
+  }
+
+  .welcome-brand-name {
+    font-size: 32px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+
+  .welcome-brand-tag {
+    font-size: 13px;
+    color: #0891b2;
+    font-weight: 700;
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+  }
+
+  .feature-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 12px 14px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 12.5px;
+    color: #334155;
+  }
+
+  .feature-icon {
+    font-size: 18px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .feature-item strong {
+    display: block;
+    color: #0f172a;
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+
+  /* Terms page */
+  .terms-box {
+    flex: 1;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 12.5px;
+    line-height: 1.7;
+    color: #334155;
+    overflow-y: auto;
+    background: #fafbfc;
+    margin-bottom: 16px;
+    min-height: 260px;
+  }
+
+  .terms-box h3 {
+    font-size: 13px;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 14px 0 6px;
+    text-transform: uppercase;
+    letter-spacing: .4px;
+  }
+
+  .terms-box h3:first-child { margin-top: 0; }
+  .terms-box p { margin-bottom: 8px; }
+
+  .accept-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    background: #f0f9ff;
+    border: 1.5px solid #bae6fd;
+    border-radius: 8px;
+    cursor: pointer;
+    user-select: none;
+    transition: background .15s;
+  }
+
+  .accept-row:hover { background: #e0f2fe; }
+
+  .accept-row input[type="checkbox"] {
+    width: 18px; height: 18px;
+    accent-color: #0891b2;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  .accept-row label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #0c4a6e;
+    cursor: pointer;
+  }
+
+  /* Directory page */
+  .dir-group {
+    margin-bottom: 20px;
+  }
+
+  .dir-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .6px;
+    color: #64748b;
+    margin-bottom: 6px;
+  }
+
+  .dir-row {
+    display: flex;
+    gap: 8px;
+  }
+
+  .dir-input {
+    flex: 1;
+    padding: 10px 12px;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 13px;
+    color: #1e293b;
+    background: #f8fafc;
+    font-family: 'Consolas', monospace;
+  }
+
+  .dir-input:focus {
+    outline: none;
+    border-color: #0891b2;
+    background: #fff;
+  }
+
+  .btn-browse {
+    padding: 10px 16px;
+    background: #1e293b;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background .15s;
+  }
+
+  .btn-browse:hover { background: #0f172a; }
+
+  .dir-info {
+    margin-top: 8px;
+    font-size: 12px;
+    color: #94a3b8;
+  }
+
+  .shortcut-options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 8px;
+  }
+
+  .check-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: #334155;
+    cursor: pointer;
+  }
+
+  .check-row input { accent-color: #0891b2; width: 16px; height: 16px; cursor: pointer; }
+
+  /* Installing page */
+  .install-status {
+    text-align: center;
+    padding: 20px 0;
+  }
+
+  .install-icon {
+    font-size: 56px;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .install-label {
+    font-size: 15px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 6px;
+  }
+
+  .install-sub {
+    font-size: 13px;
+    color: #64748b;
+    margin-bottom: 28px;
+  }
+
+  .progress-track {
+    height: 8px;
+    background: #e2e8f0;
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 0 auto 8px;
+    max-width: 400px;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #0891b2, #06b6d4);
+    border-radius: 4px;
+    transition: width .5s ease;
+    width: 0%;
+  }
+
+  .progress-pct {
+    font-size: 13px;
+    color: #64748b;
+    font-weight: 600;
+  }
+
+  .log-box {
+    flex: 1;
+    background: #0f172a;
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-top: 20px;
+    font-family: 'Consolas', monospace;
+    font-size: 11.5px;
+    color: #94a3b8;
+    overflow-y: auto;
+    min-height: 120px;
+  }
+
+  .log-line { margin-bottom: 3px; color: #64748b; }
+  .log-line.ok  { color: #10b981; }
+  .log-line.err { color: #ef4444; }
+  .log-line.cur { color: #e2e8f0; }
+
+  /* Done page */
+  .done-hero {
+    text-align: center;
+    padding: 32px 0 20px;
+  }
+
+  .done-check {
+    width: 72px;
+    height: 72px;
+    background: #ecfdf5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 36px;
+  }
+
+  .done-title {
+    font-size: 22px;
+    font-weight: 900;
+    color: #0f172a;
+    margin-bottom: 8px;
+  }
+
+  .done-sub {
+    font-size: 14px;
+    color: #64748b;
+    margin-bottom: 28px;
+    line-height: 1.6;
+  }
+
+  .done-launch {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 18px;
+    background: #f0f9ff;
+    border: 1.5px solid #bae6fd;
+    border-radius: 8px;
+    cursor: pointer;
+    user-select: none;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .done-launch input { accent-color: #0891b2; width: 18px; height: 18px; cursor: pointer; }
+  .done-launch label { font-size: 13px; font-weight: 600; color: #0c4a6e; cursor: pointer; }
+
+  /* ── Footer ── */
+  .footer {
+    background: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+    padding: 16px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .footer-left {
+    font-size: 11.5px;
+    color: #94a3b8;
+  }
+
+  .footer-btns {
+    display: flex;
+    gap: 10px;
+  }
+
+  .btn {
+    padding: 9px 22px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    transition: all .15s;
+    font-family: inherit;
+  }
+
+  .btn-back {
+    background: #f1f5f9;
+    color: #475569;
+    border: 1.5px solid #cbd5e1;
+  }
+
+  .btn-back:hover { background: #e2e8f0; }
+
+  .btn-next {
+    background: #1e293b;
+    color: #fff;
+    min-width: 110px;
+  }
+
+  .btn-next:hover { background: #0f172a; }
+  .btn-next:disabled { background: #94a3b8; cursor: not-allowed; }
+
+  .btn-finish {
+    background: #0891b2;
+    color: #fff;
+    min-width: 120px;
+  }
+
+  .btn-finish:hover { background: #0e7490; }
+
+  .btn-cancel {
+    background: transparent;
+    color: #64748b;
+    border: 1.5px solid #e2e8f0;
+  }
+
+  .btn-cancel:hover { background: #f1f5f9; color: #334155; }
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<div class="header">
+  <div class="header-dark">
+    <img class="header-logo" src="../assets/icon_256.png" alt="Smart Assess"
+         onerror="this.style.display='none'">
+  </div>
+  <div class="header-light">
+    <div class="header-title">Smart Assess Setup</div>
+    <div class="header-sub" id="header-sub">Welcome to the Smart Assess installation wizard</div>
+  </div>
+</div>
+
+<!-- ── BODY ── -->
+<div class="body">
+
+  <!-- Sidebar steps -->
+  <div class="sidebar">
+    <div class="step-item active" id="step-0">
+      <div class="step-num">1</div><span>Welcome</span>
+    </div>
+    <div class="step-item" id="step-1">
+      <div class="step-num">2</div><span>Terms &amp; Conditions</span>
+    </div>
+    <div class="step-item" id="step-2">
+      <div class="step-num">3</div><span>Install Location</span>
+    </div>
+    <div class="step-item" id="step-3">
+      <div class="step-num">4</div><span>Installing</span>
+    </div>
+    <div class="step-item" id="step-4">
+      <div class="step-num">5</div><span>Finish</span>
+    </div>
+  </div>
+
+  <!-- Content area -->
+  <div class="content">
+
+    <!-- Page 0: Welcome -->
+    <div class="page active" id="page-0">
+      <div class="welcome-banner">
+        <img src="../assets/icon_256.png" alt="Logo" onerror="this.style.display='none'">
+        <div>
+          <div class="welcome-brand-name">SMART ASSESS</div>
+          <div class="welcome-brand-tag">Software for Basic Schools</div>
+        </div>
+      </div>
+
+      <div class="page-subtitle">
+        This wizard will install <strong>Smart Assess v3.1</strong> on your computer.
+        Smart Assess is a complete school management system for KG to Basic 9 —
+        covering scores, report cards, attendance, promotions and more.
+      </div>
+
+      <div class="feature-list">
+        <div class="feature-item">
+          <div class="feature-icon">📝</div>
+          <div><strong>Score Entry</strong>CA components &amp; exams for all classes</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">📊</div>
+          <div><strong>Report Cards</strong>Professional A5 report cards ready to print</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">👥</div>
+          <div><strong>Student Management</strong>Full biodata, enrolment &amp; attendance</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🎓</div>
+          <div><strong>Promotion Engine</strong>Auto-grade &amp; promote KG–Basic 9</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">📋</div>
+          <div><strong>Class Summary</strong>Performance overview per class &amp; term</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🔐</div>
+          <div><strong>Role-Based Access</strong>Head Teacher, IT Coordinator &amp; Teachers</div>
+        </div>
+      </div>
+
+      <div style="font-size:12px;color:#94a3b8;margin-top:auto;">
+        Close all other applications before continuing. Click <strong>Next</strong> to proceed.
+      </div>
+    </div>
+
+    <!-- Page 1: Terms -->
+    <div class="page" id="page-1">
+      <div class="page-title">Terms &amp; Conditions</div>
+      <div class="page-subtitle">Please read the licence agreement carefully before installing Smart Assess.</div>
+
+      <div class="terms-box">
+        <h3>Smart Assess Software Licence Agreement</h3>
+        <p>This Licence Agreement ("Agreement") is a legal agreement between you ("User") and Muizu Code ("Licensor") for the use of Smart Assess software ("Software"). By installing or using the Software, you agree to be bound by the terms of this Agreement.</p>
+
+        <h3>1. Grant of Licence</h3>
+        <p>Muizu Code grants you a non-exclusive, non-transferable licence to install and use Smart Assess on computers within your school. This licence is granted solely for use by registered educational institutions in Ghana.</p>
+
+        <h3>2. Restrictions</h3>
+        <p>You may not: (a) copy, modify, or distribute the Software or any portion of it; (b) reverse engineer, decompile, or disassemble the Software; (c) rent, lease, or lend the Software to a third party; (d) use the Software for any unlawful purpose; (e) remove or alter any proprietary notices or labels.</p>
+
+        <h3>3. Data and Privacy</h3>
+        <p>Smart Assess stores school data locally on your computer. You are solely responsible for the security, backup, and confidentiality of all student and staff data entered into the Software. Muizu Code does not collect or transmit personal data without explicit consent.</p>
+
+        <h3>4. Updates and Support</h3>
+        <p>Software updates may be issued from time to time. You are responsible for keeping your installation current. Support is provided by Muizu Code at the contact details supplied with your licence. Muizu Code reserves the right to change support terms with reasonable notice.</p>
+
+        <h3>5. Disclaimer of Warranties</h3>
+        <p>The Software is provided "as is" without warranty of any kind, either express or implied, including but not limited to the implied warranties of merchantability, fitness for a particular purpose, and non-infringement. Muizu Code does not warrant that the Software will be error-free or uninterrupted.</p>
+
+        <h3>6. Limitation of Liability</h3>
+        <p>In no event shall Muizu Code be liable for any special, incidental, indirect, or consequential damages arising out of the use of or inability to use the Software, even if Muizu Code has been advised of the possibility of such damages. The total liability of Muizu Code shall not exceed the amount paid for the Software licence.</p>
+
+        <h3>7. Termination</h3>
+        <p>This Agreement is effective until terminated. Your rights under this Agreement will terminate automatically if you fail to comply with any of its terms. Upon termination, you must destroy all copies of the Software in your possession.</p>
+
+        <h3>8. Governing Law</h3>
+        <p>This Agreement shall be governed by and construed in accordance with the laws of the Republic of Ghana. Any disputes shall be subject to the exclusive jurisdiction of the courts of Ghana.</p>
+
+        <h3>9. Contact</h3>
+        <p>Muizu Code · Ghana · Contact: +233 559 470 642</p>
+      </div>
+
+      <div class="accept-row" id="accept-row" onclick="toggleAccept()">
+        <input type="checkbox" id="accept-cb">
+        <label for="accept-cb">I have read and accept the Terms and Conditions of this licence agreement</label>
+      </div>
+    </div>
+
+    <!-- Page 2: Location -->
+    <div class="page" id="page-2">
+      <div class="page-title">Choose Install Location</div>
+      <div class="page-subtitle">Select where Smart Assess should be installed and configure shortcuts.</div>
+
+      <div class="dir-group">
+        <div class="dir-label">Installation Folder</div>
+        <div class="dir-row">
+          <input class="dir-input" id="install-dir" type="text"
+                 value="C:\Program Files\Smart Assess" readonly>
+          <button class="btn-browse" onclick="browseDir()">Browse…</button>
+        </div>
+        <div class="dir-info" id="dir-space">Checking available space…</div>
+      </div>
+
+      <div class="dir-group">
+        <div class="dir-label">Shortcuts</div>
+        <div class="shortcut-options">
+          <label class="check-row">
+            <input type="checkbox" id="sc-desktop" checked>
+            Create Desktop shortcut
+          </label>
+          <label class="check-row">
+            <input type="checkbox" id="sc-startmenu" checked>
+            Add to Start Menu
+          </label>
+          <label class="check-row">
+            <input type="checkbox" id="sc-startup">
+            Launch Smart Assess automatically when Windows starts
+          </label>
+        </div>
+      </div>
+
+      <div style="margin-top:auto;padding:14px 16px;background:#fffbeb;border:1.5px solid #fde68a;border-radius:8px;font-size:12.5px;color:#92400e;">
+        <strong>ℹ️ Note:</strong> Smart Assess runs as a local server on your computer.
+        No internet connection is required for day-to-day use. Your data never leaves your school network.
+      </div>
+    </div>
+
+    <!-- Page 3: Installing -->
+    <div class="page" id="page-3">
+      <div class="install-status">
+        <span class="install-icon" id="install-icon">⚙️</span>
+        <div class="install-label" id="install-label">Installing Smart Assess…</div>
+        <div class="install-sub" id="install-sub">Please wait while files are being copied</div>
+        <div class="progress-track">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+        <div class="progress-pct" id="progress-pct">0%</div>
+      </div>
+
+      <div class="log-box" id="log-box">
+        <div class="log-line cur">Preparing installation…</div>
+      </div>
+    </div>
+
+    <!-- Page 4: Done -->
+    <div class="page" id="page-4">
+      <div class="done-hero">
+        <div class="done-check">✅</div>
+        <div class="done-title">Installation Complete!</div>
+        <div class="done-sub">
+          Smart Assess v3.1 has been successfully installed on your computer.<br>
+          You can launch it from the Desktop or Start Menu shortcut.
+        </div>
+        <div class="done-launch" onclick="document.getElementById('launch-cb').click()">
+          <input type="checkbox" id="launch-cb" checked>
+          <label for="launch-cb">Launch Smart Assess now</label>
+        </div>
+      </div>
+
+      <div style="margin-top:auto;">
+        <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:14px 16px;font-size:12.5px;color:#065f46;">
+          <strong>✅ What was installed:</strong>
+          Smart Assess server, desktop &amp; Start Menu shortcuts, and school database.
+          To uninstall, go to Windows Settings → Apps → Smart Assess → Uninstall.
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /content -->
+</div><!-- /body -->
+
+<!-- ── FOOTER ── -->
+<div class="footer">
+  <div class="footer-left">Smart Assess v3.1 &nbsp;·&nbsp; Built by Muizu Code</div>
+  <div class="footer-btns">
+    <button class="btn btn-cancel" id="btn-cancel" onclick="cancelInstall()">Cancel</button>
+    <button class="btn btn-back"   id="btn-back"   onclick="goBack()" style="display:none;">← Back</button>
+    <button class="btn btn-next"   id="btn-next"   onclick="goNext()">Next →</button>
+    <button class="btn btn-finish" id="btn-finish" onclick="finish()" style="display:none;">Finish</button>
+  </div>
+</div>
+
+<script>
+const { ipcRenderer } = require('electron');
+
+let currentPage = 0;
+const totalPages = 5;
+
+const subtitles = [
+  'Welcome to the Smart Assess installation wizard',
+  'Read and accept the Licence Agreement to continue',
+  'Choose where to install Smart Assess',
+  'Installing — please do not close this window',
+  'Smart Assess is ready to use',
+];
+
+function setPage(n) {
+  // Update pages
+  for (let i = 0; i < totalPages; i++) {
+    const pg = document.getElementById(`page-${i}`);
+    const st = document.getElementById(`step-${i}`);
+    if (!pg || !st) continue;
+    pg.classList.toggle('active', i === n);
+    st.classList.remove('active', 'done');
+    if (i === n) st.classList.add('active');
+    else if (i < n) st.classList.add('done');
+  }
+
+  document.getElementById('header-sub').textContent = subtitles[n];
+
+  const btnBack   = document.getElementById('btn-back');
+  const btnNext   = document.getElementById('btn-next');
+  const btnFinish = document.getElementById('btn-finish');
+  const btnCancel = document.getElementById('btn-cancel');
+
+  btnBack.style.display   = (n > 0 && n < 3) ? '' : 'none';
+  btnNext.style.display   = (n < 3) ? '' : 'none';
+  btnFinish.style.display = (n === 4) ? '' : 'none';
+  btnCancel.style.display = (n < 4) ? '' : 'none';
+
+  // Next button state
+  if (n === 1) {
+    const cb = document.getElementById('accept-cb');
+    document.getElementById('btn-next').disabled = !cb.checked;
+  } else {
+    document.getElementById('btn-next').disabled = false;
+  }
+
+  currentPage = n;
+
+  if (n === 3) startInstall();
+}
+
+function goNext() {
+  if (currentPage === 1 && !document.getElementById('accept-cb').checked) return;
+  setPage(currentPage + 1);
+}
+
+function goBack() {
+  if (currentPage > 0 && currentPage < 3) setPage(currentPage - 1);
+}
+
+function toggleAccept() {
+  const cb = document.getElementById('accept-cb');
+  cb.checked = !cb.checked;
+  document.getElementById('btn-next').disabled = !cb.checked;
+}
+
+function browseDir() {
+  ipcRenderer.send('browse-dir');
+}
+
+ipcRenderer.on('dir-selected', (_, dir) => {
+  if (dir) document.getElementById('install-dir').value = dir;
+});
+
+// ── Simulated install progress ──
+function addLog(msg, cls = '') {
+  const box = document.getElementById('log-box');
+  const line = document.createElement('div');
+  line.className = 'log-line ' + cls;
+  line.textContent = msg;
+  box.appendChild(line);
+  box.scrollTop = box.scrollHeight;
+}
+
+function setProgress(pct, label) {
+  document.getElementById('progress-fill').style.width = pct + '%';
+  document.getElementById('progress-pct').textContent = pct + '%';
+  if (label) document.getElementById('install-label').textContent = label;
+}
+
+function startInstall() {
+  const steps = [
+    { pct: 5,  label: 'Preparing installation…',       log: 'Verifying system requirements…',            cls: 'cur' },
+    { pct: 15, label: 'Copying core files…',            log: '✓ System requirements met',                 cls: 'ok' },
+    { pct: 25, label: 'Copying core files…',            log: 'Copying Smart Assess server files…',        cls: 'cur' },
+    { pct: 40, label: 'Installing server…',             log: '✓ Server files installed',                  cls: 'ok' },
+    { pct: 50, label: 'Setting up database…',           log: 'Initialising school database…',             cls: 'cur' },
+    { pct: 62, label: 'Setting up database…',           log: '✓ Database ready',                          cls: 'ok' },
+    { pct: 72, label: 'Creating shortcuts…',            log: 'Creating desktop shortcut…',                cls: 'cur' },
+    { pct: 80, label: 'Creating shortcuts…',            log: '✓ Shortcuts created',                       cls: 'ok' },
+    { pct: 88, label: 'Registering application…',       log: 'Writing registry entries…',                 cls: 'cur' },
+    { pct: 95, label: 'Finalising…',                    log: '✓ Application registered',                  cls: 'ok' },
+    { pct: 100,label: 'Installation complete!',         log: '✅ Smart Assess installed successfully',     cls: 'ok' },
+  ];
+
+  let i = 0;
+  function nextStep() {
+    if (i >= steps.length) {
+      document.getElementById('install-icon').textContent = '✅';
+      document.getElementById('install-sub').textContent = 'Installation completed successfully';
+      setTimeout(() => setPage(4), 800);
+      return;
+    }
+    const s = steps[i++];
+    setProgress(s.pct, s.label);
+    addLog(s.log, s.cls);
+    setTimeout(nextStep, 420 + Math.random() * 300);
+  }
+  setTimeout(nextStep, 300);
+}
+
+function cancelInstall() {
+  ipcRenderer.send('cancel-install');
+}
+
+function finish() {
+  const launch = document.getElementById('launch-cb').checked;
+  ipcRenderer.send('finish-install', { launch });
+}
+
+// Space check on page 2
+function checkSpace() {
+  document.getElementById('dir-space').textContent =
+    'Required: ~350 MB  ·  Drive: C:\\  ·  Available: checking…';
+}
+setPage(0);
+</script>
+</body>
+</html>

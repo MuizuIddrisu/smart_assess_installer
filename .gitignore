@@ -1,0 +1,72 @@
+# =========================
+# Installer Folder
+# =========================
+installer/node_modules/
+installer/dist/
+installer/build/
+
+# Electron Builder Files
+installer/*.blockmap
+installer/latest.yml
+installer/builder-debug.yml
+installer/builder-effective-config.yaml
+installer/win-unpacked/
+
+# Windows Installer Files
+installer/*.exe
+installer/*.msi
+
+# =========================
+# Logs
+# =========================
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# =========================
+# Environment Files
+# =========================
+.env
+.env.*
+
+# =========================
+# OS Files
+# =========================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# =========================
+# VS Code
+# =========================
+.vscode/*
+
+# =========================
+# Temporary Files
+# =========================
+tmp/
+temp/
+*.tmp
+
+# =========================
+# Cache
+# =========================
+.cache/
+
+# =========================
+# Python / Django
+# =========================
+__pycache__/
+*.py[cod]
+*.sqlite3
+*.db
+venv/
+.venv/
+env/
+
+# =========================
+# Keep Important Files
+# =========================
+!README.md
+!installer/assets/license.txt

@@ -1,0 +1,175 @@
+SMART ASSESS SOFTWARE LICENCE & DATA PROTECTION AGREEMENT
+Version 1.0.0 | Smart Assess | Ghana
+----------------------------------------------------------------
+
+PLEASE READ THIS AGREEMENT CAREFULLY BEFORE INSTALLING SMART ASSESS.
+By clicking "I Agree" you accept all terms below and confirm you have
+authority to bind your institution to them.
+
+================================================================
+PART A - SOFTWARE LICENCE AGREEMENT
+================================================================
+
+1. GRANT OF LICENCE
+-------------------
+Smart Assess grants you a non-exclusive, non-transferable licence to
+install and use this software on computers owned by your educational
+institution. This licence is granted solely for registered educational
+institutions in Ghana.
+
+2. RESTRICTIONS
+---------------
+You may NOT:
+  (a) Copy, modify, distribute or sublicense the Software
+  (b) Reverse engineer, decompile or disassemble the Software
+  (c) Rent, lease or lend the Software to any third party
+  (d) Use the Software for any unlawful purpose
+  (e) Remove or alter any proprietary notices or labels
+  (f) Share your licence key or registration with other institutions
+
+3. INTELLECTUAL PROPERTY
+------------------------
+Smart Assess and all copies remain the proprietary property of the
+Licensor. All rights reserved. The software is protected by copyright
+law and international copyright treaties.
+
+4. NO WARRANTY
+--------------
+THE SOFTWARE IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
+
+5. LIMITATION OF LIABILITY
+---------------------------
+IN NO EVENT SHALL THE LICENSOR BE LIABLE FOR ANY INDIRECT, INCIDENTAL,
+SPECIAL OR CONSEQUENTIAL DAMAGES. TOTAL LIABILITY SHALL NOT EXCEED THE
+AMOUNT PAID FOR THE SOFTWARE LICENCE.
+
+6. TERMINATION
+--------------
+This licence terminates automatically if you fail to comply with its
+terms. Upon termination you must destroy all copies of the Software.
+
+7. GOVERNING LAW
+----------------
+This Agreement is governed by the laws of the Republic of Ghana.
+Disputes are subject to the jurisdiction of the courts of Ghana.
+
+================================================================
+PART B - DATA PROTECTION POLICY
+Compliance with the Ghana Data Protection Act 2012 (Act 843)
+and Data Protection (Privacy of Personal Information) Regulations
+2016 (L.I. 2227)
+================================================================
+
+8. YOU ARE THE DATA CONTROLLER (Act 843, Section 16)
+-----------------------------------------------------
+As the institution using Smart Assess to process student data, YOU
+are the Data Controller under the Ghana Data Protection Act 2012
+(Act 843). You are responsible for:
+
+  * Registering with the Data Protection Commission of Ghana
+  * Ensuring lawful grounds exist for processing student data
+  * Obtaining parental/guardian consent before collecting data
+  * Responding to data subject access requests within the statutory
+    timeframe (21 days)
+
+9. DATA COLLECTED AND PROCESSED
+--------------------------------
+Smart Assess collects and processes the following data solely to
+perform its academic assessment functions:
+
+  * Student personal data: names, date of birth, gender, class,
+    index numbers
+  * Academic data: scores, grades, attendance, report cards
+  * Staff data: usernames, roles, activity logs (passwords are
+    hashed - never stored in plain text)
+  * School data: name, type, term/year configuration, grading setup
+
+10. THE EIGHT DATA PROTECTION PRINCIPLES (Act 843, Section 17)
+---------------------------------------------------------------
+Smart Assess is designed to support compliance with all eight
+principles:
+
+  (a) Accountability   - Your institution is accountable for all
+                         data processed through this software.
+  (b) Lawfulness       - Data shall only be collected for a
+                         specific, lawful, educational purpose.
+  (c) Specification    - Data is collected solely for academic
+                         assessment and school management.
+  (d) Compatibility    - Data shall not be used for purposes
+                         incompatible with its collection.
+  (e) Quality          - Data shall be accurate and kept current.
+  (f) Openness         - Data subjects shall be informed about
+                         data collection practices.
+  (g) Data Security    - Technical measures protect all data
+                         (see Section 11).
+  (h) Access           - Data subjects have the right to access
+                         their personal data.
+
+11. SECURITY MEASURES
+----------------------
+Smart Assess implements the following technical controls:
+
+  * All data stored locally in a protected directory
+    (%APPDATA%\SmartAssess\) - not on external servers
+  * Passwords hashed using industry-standard algorithms
+  * Role-based access control limits data to authorised users
+  * Session management with automatic timeout
+  * Full activity audit log of all data modifications
+  * Encrypted HTTPS used for any optional cloud sync
+
+12. DATA STORAGE AND RETENTION
+--------------------------------
+(a) LOCAL STORAGE: All student and school data is stored exclusively
+    on your institution's computer. Smart Assess does NOT transmit
+    personal data to external servers without your explicit consent.
+
+(b) RETENTION: You are responsible for setting data retention
+    periods in accordance with GES policies and Act 843.
+    Uninstalling the software does not automatically delete your
+    data unless you choose to do so during uninstallation.
+
+13. RIGHTS OF DATA SUBJECTS (Act 843, Sections 20-28)
+-------------------------------------------------------
+Students, parents and staff have the right to:
+  * Access their personal data held by the institution
+  * Correct inaccurate personal data
+  * Object to processing in certain circumstances
+  * Have their data deleted where no longer necessary
+
+Smart Assess provides tools to export and delete individual student
+records to help your institution fulfil these rights.
+
+14. CHILDREN'S DATA (SPECIAL CATEGORY)
+----------------------------------------
+Smart Assess processes data relating to children (persons under 18).
+In accordance with Act 843 and the Children's Act 1998 (Act 560),
+institutions must:
+
+  * Obtain parental/guardian consent before collecting student data
+  * Use student data solely for educational assessment purposes
+  * Not share student data with unauthorised third parties
+  * Apply heightened security to protect children's information
+
+15. DATA BREACH NOTIFICATION
+------------------------------
+In the event of a personal data breach, the institution (as Data
+Controller) must notify the Data Protection Commission of Ghana
+in accordance with Act 843 and take appropriate remedial action.
+
+  Data Protection Commission of Ghana
+  Website: www.dpc.gov.gh | Email: info@dpc.gov.gh
+
+16. CONTACT
+-----------
+Smart Assess | support@smartassess.app | www.smartassess.app
+Phone: +233 559 470 642
+
+----------------------------------------------------------------
+Copyright ? 2026 Smart Assess. All rights reserved.
+
+BY CLICKING "I AGREE" YOU CONFIRM THAT YOUR INSTITUTION WILL COMPLY
+WITH THE GHANA DATA PROTECTION ACT 2012 (ACT 843) IN ALL PROCESSING
+OF PERSONAL DATA THROUGH THIS SOFTWARE.
+----------------------------------------------------------------

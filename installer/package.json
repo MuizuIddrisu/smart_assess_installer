@@ -1,0 +1,74 @@
+{
+  "name": "smart-assess",
+  "version": "1.0.0",
+  "description": "Smart Assess - School Assessment Management System",
+  "main": "src/main.js",
+  "author": "Smart Assess",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win --x64",
+    "build:dir": "electron-builder --win --x64 --dir"
+  },
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.0.0"
+  },
+  "build": {
+    "appId": "com.muizucode.smartassess",
+    "productName": "Smart Assess",
+    "copyright": "Copyright \u00a9 2026 Smart Assess",
+    "directories": {
+      "output": "dist",
+      "buildResources": "assets"
+    },
+    "files": [
+      "src/**/*",
+      "assets/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "../../smart_assess/dist/SmartAssess",
+        "to": "SmartAssess",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "assets/icon.ico",
+      "requestedExecutionLevel": "requireAdministrator"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "allowElevation": true,
+      "installerIcon": "assets/icon.ico",
+      "uninstallerIcon": "assets/icon.ico",
+      "installerHeaderIcon": "assets/icon.ico",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Smart Assess",
+      "runAfterFinish": true,
+      "perMachine": false,
+      "deleteAppDataOnUninstall": false,
+      "license": "assets/license.txt",
+      "installerSidebar": "assets/banner.bmp",
+      "uninstallerSidebar": "assets/banner.bmp",
+      "include": "src/installer.nsh",
+      "menuCategory": "Smart Assess",
+      "warningsAsErrors": false
+    },
+    "publish": null
+  },
+  "copyright": "Copyright \u00a9 2026 Smart Assess"
+}
