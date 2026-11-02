@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Smart Assess – The School Management System Built for Ghana</title>
+  <meta name="description" content="Offline-first school management for Ghanaian basic schools (KG–JHS): scores, report cards, attendance, fees and parent SMS on your Windows computer.">
+  <meta property="og:title" content="Smart Assess – School Management Built for Ghana">
+  <meta property="og:description" content="Scores, report cards, attendance, fees and parent SMS for KG–JHS. Works without internet on your school's Windows computer.">
+  <meta property="og:type" content="website">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Segoe UI', Arial, sans-serif; color: #1a1a2e; background: #f8fafc; line-height: 1.7; }
@@ -20,7 +24,7 @@
     }
     .hero h1 { font-size: clamp(28px, 5vw, 52px); font-weight: 800; line-height: 1.15; margin-bottom: 18px; }
     .hero h1 span { color: #D99900; }
-    .hero p { font-size: clamp(14px, 2vw, 18px); opacity: 100; max-width: 640px; margin: 0 auto 36px; color: #f0f4f8;}
+    .hero p { font-size: clamp(14px, 2vw, 18px); max-width: 640px; margin: 0 auto 36px; color: #f0f4f8;}
     .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
     .btn-primary {
       display: inline-block; background: #D99900; color: #fff; font-weight: 700;
@@ -69,7 +73,7 @@
     .stat { text-align: center; padding: 20px 40px; border-right: 1px solid rgba(255,255,255,.15); }
     .stat:last-child { border-right: none; }
     .stat-num { font-size: 40px; font-weight: 800; color: #D99900; line-height: 1; }
-    .stat-label { font-size: 13px; opacity: .7; margin-top: 6px; }
+    .stat-label { font-size: 13px; opacity: .85; margin-top: 6px; }
 
     /* Pricing */
     .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 36px; }
@@ -101,7 +105,7 @@
 
     /* Download info */
     .download-meta { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-top: 18px; }
-    .download-meta span { font-size: 12px; opacity: .6; display: flex; align-items: center; gap: 6px; }
+    .download-meta span { font-size: 13px; opacity: .85; display: flex; align-items: center; gap: 6px; }
 
     /* Testimonial */
     .testimonial {
@@ -123,6 +127,7 @@
 
     footer { background: #0f2340; color: rgb(255, 255, 255); text-align: center; padding: 30px; font-size: 13px; }
     footer strong { color: #D99900; }
+    footer p { color: rgba(255,255,255,.8); margin-bottom: 0; }
 
     @media (max-width: 600px) {
       .stat { padding: 16px 20px; }
@@ -136,24 +141,26 @@
 <div class="hero">
   <div class="badge">🇬🇭 Built for Ghana's Schools</div>
   <h1>Meet <span>Smart Assess</span> —<br>The School Management System<br>That Works Without Internet</h1>
-  <p>Report cards, attendance, grades, fees, and SMS — all in one offline-first desktop app. Your data stays safe even when the lights go out or the connection drops.</p>
+  <p>Report cards, attendance, grades, fees, and SMS — all in one offline-first desktop app. Keep working when the lights go out or the connection drops; it syncs when you're back online.</p>
   <div class="hero-btns">
-    <a href="https://github.com/MuizuIddrisu/smart_assess_installer/releases/download/v1.0.2/Smart.Assess.Setup.1.0.2.exe" class="btn-primary" style="font-size:17px;padding:16px 40px;">
+    <a href="https://github.com/MuizuIddrisu/smart_assess_installer/releases/download/v1.0.5/Smart.Assess.Setup.1.0.5.exe" class="btn-primary" style="font-size:17px;padding:16px 40px;">
       ⬇ Download Smart Assess — Free
     </a>
     <!-- <a href="#pricing" class="btn-secondary">View Pricing →</a> -->
   </div>
   <div class="download-meta">
-    <span>📦 ~95 MB installer</span>
-    <span>🔒 No data sent without permission</span>
+    <span>📦 ~100 MB installer</span>
+    <span>💻 Windows 10 / 11 (64-bit)</span>
+    <span>🆓 Free to install and explore</span>
   </div>
 </div>
 
 <!-- ── Stats ──────────────────────────────────────────────────────────────── -->
 <div class="stats-bar">
-  <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Offline Capable</div></div>
-  <div class="stat"><div class="stat-num">882+</div><div class="stat-label">Students Managed</div></div>
-  <div class="stat"><div class="stat-num">Multiple</div><div class="stat-label">Devices, One School</div></div>
+  <div class="stat"><div class="stat-num">KG–JHS</div><div class="stat-label">Every Level Covered</div></div>
+  <div class="stat"><div class="stat-num">Offline</div><div class="stat-label">Daily Work Without Internet</div></div>
+  <div class="stat"><div class="stat-num">Multiple</div><div class="stat-label">Computers, One School</div></div>
+  <!-- Only put a student count back here if it is a real, current figure. -->
   <!-- <div class="stat"><div class="stat-num">0</div><div class="stat-label">Monthly IT Cost</div></div> -->
 </div>
 
@@ -161,13 +168,16 @@
 <div style="background:#fff;">
 <section class="container">
   <h2>What is Smart Assess?</h2>
-  <p>Smart Assess is a <strong>desktop school management system</strong> designed specifically for Ghanaian basic schools — from KG to JHS. It runs directly on your school's Windows computer with or without internet. When you reconnect, it automatically syncs all your data to the cloud so no work is ever lost.</p>
+  <p>Smart Assess is a <strong>desktop school management system</strong> designed specifically for Ghanaian basic schools — from KG to JHS. It runs directly on your school's Windows computer with or without internet. On paid plans, when you reconnect it syncs your data to the cloud, so a broken or stolen computer doesn't mean lost records.</p>
   <p>Unlike web-based systems that break the moment your internet goes down, Smart Assess keeps working. Your teachers enter scores, attendance, and fees in the classroom — and everything is ready for report card printing day without a single data entry scramble.</p>
 
+  <!-- Testimonial: only publish a REAL quote, with the school's permission
+       (name the school or the head teacher). Unattributed quotes read as made up.
   <div class="testimonial">
-    <p>"We used to spend three days at the end of term manually calculating averages and typing report cards. Smart Assess cut that down to half a day."</p>
-    <cite>— Head Teacher, Basic School, Eastern Region</cite>
+    <p>"…"</p>
+    <cite>— Name, Head Teacher, School, Town</cite>
   </div>
+  -->
 </section>
 </div>
 
@@ -180,7 +190,7 @@
     <div class="feature-card">
       <div class="feature-icon">📋</div>
       <h3>Student Biodata</h3>
-      <p>Register students with full biodata, class assignments, parent contacts, and photos. Search and filter instantly across hundreds of records.</p>
+      <p>Register students with full biodata, class assignments and parent contacts — or import them from Excel. Search and filter instantly across hundreds of records.</p>
     </div>
     <div class="feature-card">
       <div class="feature-icon">📊</div>
@@ -200,12 +210,12 @@
     <div class="feature-card">
       <div class="feature-icon">💰</div>
       <h3>Fee Management</h3>
-      <p>Create fee types, record payments, and generate receipts. Track who has paid, who is outstanding, and generate fee reports by class.</p>
+      <p>Set fees per level, record payments and print receipts. See defaulters by class or by fee, track expenses and IGF, and get a term report with charts.</p>
     </div>
     <div class="feature-card">
       <div class="feature-icon">📱</div>
       <h3>Parent SMS Alerts</h3>
-      <p>Send bulk SMS to all parents or specific classes. Results, meeting notices, or custom messages — delivered instantly via MTN, Telecel, and AirtelTigo.</p>
+      <p>Send results with every subject's score, fee receipts and reminders listing each fee, or custom notices — to one parent, a class or the whole school, on any network.</p>
     </div>
     <div class="feature-card">
       <div class="feature-icon">🎓</div>
@@ -215,27 +225,27 @@
     <div class="feature-card">
       <div class="feature-icon">🏫</div>
       <h3>Alumni Records</h3>
-      <p>Keep track of graduated students. Store their BECE scores, results, and forward their data for continuity.</p>
+      <p>Graduates move to Alumni with their full score history kept. Learners who leave or transfer are kept on a separate Former Students page — nothing is lost.</p>
     </div>
     <div class="feature-card">
       <div class="feature-icon">⬆</div>
       <h3>Auto-Promotion</h3>
-      <p>Automatically promote students to the next class at end of year based on performance. Override individual decisions where needed.</p>
+      <p>Promote a whole class at year end based on scores and attendance, override individual decisions, and graduate Basic 9 even without Term 3 scores (BECE year).</p>
     </div>
     <div class="feature-card">
       <div class="feature-icon">☁</div>
       <h3>Cloud Backup &amp; Sync</h3>
-      <p>All data syncs automatically to a secure cloud server whenever internet is available. Multiple computers, same school — always in sync.</p>
+      <p>On paid plans, data syncs to a secure cloud server whenever internet is available, and several computers in the same school stay in sync.</p>
     </div>
     <div class="feature-card">
       <div class="feature-icon">🖨</div>
-      <h3>Live Print Preview</h3>
-      <p>See exactly how your report cards and class lists will look before printing. Adjust paper size, margins, and orientation live.</p>
+      <h3>Print Preview</h3>
+      <p>See exactly how report cards and class lists will look before printing, then print or save as PDF.</p>
     </div>
     <div class="feature-card">
       <div class="feature-icon">📥</div>
-      <h3>Excel Import</h3>
-      <p>Already have student data in Excel? Import it directly into Smart Assess in seconds — no retyping needed.</p>
+      <h3>Excel Import &amp; Export</h3>
+      <p>Already have students or scores in Excel? Import them in seconds, and export reports back to Excel whenever you need them.</p>
     </div>
   </div>
 </section>
@@ -250,7 +260,7 @@
       <span class="why-icon">📡</span>
       <div>
         <h3>Works Without Internet</h3>
-        <p>Power cuts, network issues, or remote locations — none of that stops your school from operating. Smart Assess runs entirely offline and syncs when connection returns.</p>
+        <p>Power cuts, network issues, or remote locations — daily work carries on offline. Just connect to the internet at least once every two weeks so the app can sync and pick up updates.</p>
       </div>
     </li>
     <li>
@@ -271,28 +281,28 @@
       <span class="why-icon">🔒</span>
       <div>
         <h3>Your Data Stays Private</h3>
-        <p>All data is encrypted in transit and stored locally on your school's computer. No third party can access your student records without your permission.</p>
+        <p>Records live on your school's own computer, and anything sent to our server travels over an encrypted connection. Your student data is never sold or shared with third parties.</p>
       </div>
     </li>
     <li>
       <span class="why-icon">💻</span>
       <div>
         <h3>Multiple Computers, One School</h3>
-        <p>The Head Teacher and class teachers can each work on their own computers. All changes sync together automatically — no USB drives, no emailing files.</p>
+        <p>With a subscription, the Head Teacher and class teachers each log in on their own computers and all changes sync together — no USB drives, no emailing files.</p>
       </div>
     </li>
     <li>
       <span class="why-icon">💵</span>
       <div>
         <h3>Affordable for Every School</h3>
-        <p>Free plan available. Paid plans are a one-time or annual fee — not a monthly subscription that drains your school's budget every month.</p>
+        <p>Install free and explore. To print report cards and use fees, SMS and cloud backup, choose a one-time licence or an annual subscription — never a monthly bill. Pay easily by Mobile Money.</p>
       </div>
     </li>
     <li>
       <span class="why-icon">📞</span>
       <div>
         <h3>Local Support</h3>
-        <p>Built by Muizu — a Ghanaian developer who understands your school's reality. Support is available via WhatsApp and phone. Not a faceless corporation.</p>
+        <p>Built by Muizu — a Ghanaian teacher and developer who understands your school's reality. Support is available via WhatsApp and phone. Not a faceless corporation.</p>
       </div>
     </li>
   </ul>
@@ -353,15 +363,19 @@
 <section class="container">
   <div class="cta-box">
     <h2>Ready to Transform Your School?</h2>
-    <p>Download Smart Assess today. Free to install, free to try. No commitment required.</p>
-    <a href="https://github.com/MuizuIddrisu/smart_assess_installer/releases/download/v1.0.2/Smart.Assess.Setup.1.0.2.exe" class="btn-primary" style="font-size:17px;padding:16px 40px;">
+    <p>Download Smart Assess today. Free to install and explore — no commitment required.</p>
+    <a href="https://github.com/MuizuIddrisu/smart_assess_installer/releases/download/v1.0.5/Smart.Assess.Setup.1.0.5.exe" class="btn-primary" style="font-size:17px;padding:16px 40px;">
       ⬇ Download Smart Assess — Free
     </a>
     <div class="download-meta" style="margin-top:16px;">
-      <span style="color:rgba(255,255,255,.5);"> 📦 ~95 MB &nbsp;·&nbsp; 🔄 Auto-updates</span>
+      <span style="color:rgba(255,255,255,.85);"> 📦 ~100 MB &nbsp;·&nbsp; 💻 Windows 10/11 (64-bit) &nbsp;·&nbsp; 🔄 Auto-updates</span>
     </div>
-    <p style="margin-top:20px;font-size:13px;color:rgba(255,255,255,.45);">
-      Questions? WhatsApp or call: <strong style="color:#D99900;">+233 559 470 642</strong> (Muizu)
+    <p style="margin-top:18px;font-size:13px;color:rgba(255,255,255,.8);">
+      If Windows shows <em>"Windows protected your PC"</em>, click <strong>More info</strong> → <strong>Run anyway</strong>.
+    </p>
+    <p style="margin-top:8px;font-size:13px;color:rgba(255,255,255,.8);">
+      Questions? <a href="https://wa.me/233559470642" style="color:#D99900;font-weight:700;">WhatsApp</a>
+      or call <a href="tel:+233559470642" style="color:#D99900;font-weight:700;">+233 559 470 642</a> (Muizu)
     </p>
   </div>
 </section>
@@ -369,7 +383,7 @@
 
 <footer>
   <p>© 2026 <strong>Smart Assess</strong> — Built by Muizu for Ghana's Schools &nbsp;·&nbsp; +233 559 470 642</p>
-  <p style="margin-top:6px;font-size:12px;">Smart Assess is an offline-first school management system for Windows. All student data is encrypted and stored locally.</p>
+  <p style="margin-top:6px;font-size:12px;">Smart Assess is an offline-first school management system for Windows. Student data is stored on your school's computer and backed up over encrypted connections.</p>
 </footer>
 
 </body>
